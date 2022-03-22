@@ -2,7 +2,7 @@
 
 export interface ChannelRecommended {
     api_warning: string;
-    body:        Body;
+    body:        Body[];
 }
 
 export interface Body {
@@ -43,3 +43,5 @@ export interface Urls {
 export interface Image {
     original: null | string;
 }
+
+
