@@ -27,7 +27,13 @@ const NativeStack = () => {
         component={MainScreen}
       />
       <Stack.Screen name="AlbumScreen" component={AlbumScreen} />
-      <Stack.Screen name="PlayerScreen" component={PlayerScreen} />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="PlayerScreen"
+        component={PlayerScreen}
+      />
     </Stack.Navigator>
   );
 };

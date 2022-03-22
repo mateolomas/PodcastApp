@@ -23,7 +23,7 @@ const AlbumScreen = ({route, navigation}: Props) => {
   );
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: 'white'}}>
       <View style={styles.container}>
         <Image
           source={{uri: album.urls.banner_image.original!}}
@@ -32,10 +32,8 @@ const AlbumScreen = ({route, navigation}: Props) => {
         />
         <View>
           <Text style={styles.title}>{album.title}</Text>
-          <Text style={styles.styleChannel}>
-            Channel style: {album.channel_style}
-          </Text>
-          <Text style={styles.title}>Descripion: </Text>
+          <Text style={styles.styleChannel}>{album.channel_style}</Text>
+          <Text style={styles.title}></Text>
           <Text style={styles.description}>{album.description}</Text>
         </View>
 
@@ -47,12 +45,21 @@ const AlbumScreen = ({route, navigation}: Props) => {
               <TouchableOpacity
                 onPress={() => navigation.navigate('PlayerScreen', audioClip)}>
                 <View
-                  style={{backgroundColor: 'green', marginVertical: 8}}
+                  style={{
+                    marginVertical: 8,
+                    borderBottomColor: '#ccc',
+                    borderBottomWidth: 1,
+                  }}
                   key={audioClip.id + audioClip.recorded_at}>
-                  <Text>{audioClip.episode_number}</Text>
-                  <Text>{audioClip.duration}</Text>
-                  <Text>{audioClip.title}</Text>
-                  <Text>{audioClip.description}</Text>
+                  <Text style={styles.pocastInfo}>
+                    Episode Number: {audioClip.episode_number}
+                  </Text>
+                  <Text style={styles.pocastInfo}>
+                    Duration: {Math.round(audioClip.duration / 60)} min
+                  </Text>
+                  <Text style={styles.pocastInfo}>
+                    Title: {audioClip.title}
+                  </Text>
                 </View>
               </TouchableOpacity>
             );
@@ -68,10 +75,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginHorizontal: 20,
-    backgroundColor: 'white',
   },
   title: {
-    fontSize: 28,
+    fontSize: 22,
     textAlign: 'center',
   },
   styleChannel: {
@@ -80,10 +86,13 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   podcastList: {
     marginTop: 20,
+  },
+  pocastInfo: {
+    marginVertical: 8,
   },
 });
 

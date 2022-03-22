@@ -16,7 +16,7 @@ const MainScreen = () => {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Music Application</Text>
+          <Text style={styles.title}>Podcast Application</Text>
         </View>
 
         <AlbumsList />

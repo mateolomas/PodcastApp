@@ -41,6 +41,7 @@
 		6423831EA8574132BED9D8CC /* libPods-musicapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-musicapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-musicapp-musicappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicapp-musicappTests.debug.xcconfig"; path = "Target Support Files/Pods-musicapp-musicappTests/Pods-musicapp-musicappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = musicapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E29F7B527EA0CA800329DBE /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		9E7CC03427E92F7600270D65 /* musicapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "musicapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E7CC03527E92F7600270D65 /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-musicapp-musicappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-musicapp-musicappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +120,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9E29F7B027EA0B9400329DBE /* Fonts */,
 				9E7CC03527E92F7600270D65 /* dummy.swift */,
 				13B07FAE1A68108700A75B9A /* musicapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -140,6 +142,14 @@
 				00E356EE1AD99517003FC87E /* musicappTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9E29F7B027EA0B9400329DBE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9E29F7B527EA0CA800329DBE /* Ionicons.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
