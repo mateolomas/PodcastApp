@@ -21,9 +21,9 @@ export type RootStackParamList = {
   AlbumScreen: Body;
 };
 
-const AlbumsList = () => {
+const PopularList = () => {
   const {data, loading, error} = useFetch<ChannelRecommended>(
-    'https://api.audioboom.com/channels/recommended/',
+    'https://api.audioboom.com/audio_clips/popular',
   );
 
   const navigation =
@@ -79,4 +79,4 @@ const AlbumsList = () => {
   );
 };
 
-export default AlbumsList;
+export default PopularList;

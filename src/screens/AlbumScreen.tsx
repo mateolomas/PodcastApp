@@ -10,7 +10,7 @@ import {
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/NativeStackNavigator';
 import {useFetch} from '../hooks/useFetch';
-import {AlbumType, AudioClip, BodyAlbum} from '../interfaces/IAlbum';
+import {AlbumType, AudioClip} from '../interfaces/IAlbum';
 
 interface Props
   extends NativeStackScreenProps<RootStackParamList, 'AlbumScreen'> {}
@@ -33,7 +33,7 @@ const AlbumScreen = ({route, navigation}: Props) => {
         <View>
           <Text style={styles.title}>{album.title}</Text>
           <Text style={styles.styleChannel}>{album.channel_style}</Text>
-          <Text style={styles.title}></Text>
+          <Text style={styles.title} />
           <Text style={styles.description}>{album.description}</Text>
         </View>
 

@@ -2,17 +2,18 @@ import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AlbumsList from '../components/AlbumsList';
+import PopularList from '../components/PopularList';
 
-const MainScreen = () => {
+const PopularScreen = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Good Morning!</Text>
+          <Text style={styles.title}>Popular Screen!</Text>
           <Text style={styles.name}>Mateo Sebastian</Text>
         </View>
 
-        <AlbumsList />
+        <PopularList />
       </View>
     </ScrollView>
   );
@@ -42,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainScreen;
+export default PopularScreen;

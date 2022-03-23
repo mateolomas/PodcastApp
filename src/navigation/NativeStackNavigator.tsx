@@ -1,9 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import CardAlbum from '../components/CardAlbum';
-import AlbumsList from '../components/AlbumsList';
+
 import MainScreen from '../screens/MainScreen';
-import {BodyAlbum, AudioClip} from '../interfaces/IAlbum';
+import {AudioClip} from '../interfaces/IAlbum';
 import AlbumScreen from '../screens/AlbumScreen';
 import {Body} from '../interfaces/IChannel';
 import PlayerScreen from '../screens/PlayerScreen';

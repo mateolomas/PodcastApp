@@ -1,28 +1,22 @@
 import React from 'react';
 import {
   Text,
-  Touchable,
   View,
   TouchableOpacity,
   StyleSheet,
   Image,
   ActivityIndicator,
-  SliderComponent,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Slider from '@react-native-community/slider';
 
 import {RootStackParamList} from '../navigation/NativeStackNavigator';
 import TrackPlayer, {
-  Capability,
-  Event,
-  RepeatMode,
   State,
   usePlaybackState,
-  useTrackPlayerEvents,
   useProgress,
 } from 'react-native-track-player';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props
@@ -49,13 +43,13 @@ const PlayerScreen = ({route, navigation}: Props) => {
     await TrackPlayer.add(song);
   };
 
-  const togglePlayback = async (playbackState: any) => {
+  const togglePlayback = async (playbackstate: any) => {
     const currenTrack = await TrackPlayer.getCurrentTrack();
 
     console.log(currenTrack, 'currenTrack');
 
     if (currenTrack !== null) {
-      if (playbackState === State.Paused || playbackState === State.Ready) {
+      if (playbackstate === State.Paused || playbackstate === State.Ready) {
         await TrackPlayer.play();
       } else {
         await TrackPlayer.pause();

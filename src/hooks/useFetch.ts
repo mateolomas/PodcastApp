@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 export const useFetch = <T>(url: string) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
   const [data, setData] = useState<T>();
   const getData = async () => {
     try {
@@ -11,7 +11,7 @@ export const useFetch = <T>(url: string) => {
       const dataApi = response.data;
       setData(dataApi);
     } catch (error: unknown) {
-      let errorMessage = "Ha ocurrido un error inesperado";
+      let errorMessage = 'Ha ocurrido un error inesperado';
       if (error instanceof Error) {
         errorMessage = error.message;
       }
@@ -23,5 +23,5 @@ export const useFetch = <T>(url: string) => {
   useEffect(() => {
     getData();
   }, []);
-  return { loading, error, data };
+  return {loading, error, data};
 };
