@@ -12,13 +12,26 @@ const MainScreen = () => {
           <Text style={styles.name}>Mateo Sebastian</Text>
         </View>
 
-        <AlbumsList />
+        <View style={styles.playlisttitle}>
+          <Text style={{color: 'purple'}}>Playlist</Text>
+          <Text style={{color: 'purple', fontWeight: '300'}}>See more</Text>
+        </View>
+        <View>
+          <AlbumsList />
+        </View>
       </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  playlisttitle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '80%',
+    marginHorizontal: '10%',
+    marginVertical: '5%',
+  },
   container: {},
 
   titleContainer: {

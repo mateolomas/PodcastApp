@@ -43,35 +43,97 @@ const AlbumsList = () => {
 
   return (
     <View style={{}}>
-      {data &&
-        data.body.map((album: Body) => {
-          if (album.urls.logo_image.original) {
-            return (
-              <>
+      <ScrollView horizontal style={{height: 300}}>
+        {data &&
+          data.body.map((album: Body) => {
+            if (album.urls.logo_image.original) {
+              return (
                 <TouchableOpacity
                   key={album.id + album.formatted_description}
                   onPress={() => navigation.navigate('AlbumScreen', album)}
                   style={{
-                    width: '100%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: 300,
-                    marginVertical: 30,
+                    borderRadius: 20,
+                    marginHorizontal: 10,
+                    marginVertical: 10,
+                    width: 200,
                   }}>
                   <Image
                     source={{uri: album.urls.logo_image.original}}
-                    style={{width: '100%', height: '100%'}}
-                    resizeMode="contain"
-                  />
-                  <Text
                     style={{
-                      fontSize: 20,
-                      textAlign: 'center',
-                    }}>
-                    {album.title}
-                  </Text>
+                      width: 200,
+                      height: 200,
+                      borderRadius: 20,
+                    }}
+                  />
+                  <View style={{}}>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        textAlign: 'center',
+                      }}>
+                      {album.title}
+                    </Text>
+                    <Text style={{fontSize: 15, textAlign: 'center'}}>
+                      {album.channel_style}
+                    </Text>
+                  </View>
                 </TouchableOpacity>
-              </>
+              );
+            }
+          })}
+      </ScrollView>
+
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginVertical: 10,
+        }}>
+        <Text style={{color: 'purple', fontSize: 20, marginLeft: '10%'}}>
+          Recently Played
+        </Text>
+        <Text style={{color: 'purple', fontSize: 15, marginRight: '10%'}}>
+          See more
+        </Text>
+      </View>
+      {data &&
+        data.body.map((album: Body) => {
+          if (album.urls.logo_image.original) {
+            return (
+              <View>
+                <TouchableOpacity
+                  key={album.id + album.formatted_description}
+                  onPress={() => navigation.navigate('AlbumScreen', album)}
+                  style={{
+                    alignItems: 'center',
+                    left: '30%',
+                    height: 80,
+                    flexDirection: 'row',
+                    marginVertical: 10,
+                    borderRadius: 20,
+                  }}>
+                  <Image
+                    source={{uri: album.urls.logo_image.original}}
+                    style={{width: 80, height: 80, borderRadius: 20}}
+                  />
+                  <View
+                    style={{
+                      left: '20%',
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        textAlign: 'left',
+                      }}>
+                      {album.title}
+                    </Text>
+                    <Text style={{fontSize: 13, textAlign: 'left'}}>
+                      {album.channel_style}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             );
           }
         })}

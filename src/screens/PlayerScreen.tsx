@@ -93,10 +93,10 @@ const PlayerScreen = ({route, navigation}: Props) => {
             }}
           />
         ) : ( */}
-        <Image
+        {/*  <Image
           source={{uri: track.urls.post_image.original!}}
           style={styles.image}
-        />
+        /> */}
         {/*  )} */}
 
         <Text style={styles.title}>{track.title}</Text>

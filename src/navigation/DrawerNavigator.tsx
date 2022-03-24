@@ -131,11 +131,12 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '70%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   menuTexto: {
     fontSize: 20,
     color: 'white',
+    textAlign: 'left',
+    left: 10,
   },
 });
 

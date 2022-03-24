@@ -13,18 +13,19 @@ const CategoriesScreen = () => {
     <ScrollView
       style={{
         marginTop: 50,
+        backgroundColor: 'rgb(61, 0, 80)',
       }}>
       <Text style={styles.title}>Categories </Text>
       <View style={styles.container}>
         {data?.body.map((category: Category) => {
           return (
-            <View style={styles.categorycard}>
-              <TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.categorycard}>
                 <Text style={styles.category} key={category.id}>
                   {category.title}
                 </Text>
-              </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
           );
         })}
       </View>
@@ -35,25 +36,35 @@ const CategoriesScreen = () => {
 const styles = StyleSheet.create({
   category: {
     fontSize: 17,
-    alignSelf: 'center',
+    color: 'white',
+    paddingHorizontal: 8,
   },
   title: {
-    fontSize: 28,
+    color: 'white',
+    fontSize: 38,
     fontWeight: 'bold',
     left: 20,
     alignItems: 'center',
   },
   container: {
-    flex: 1,
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    width: '80%',
+    marginHorizontal: '10%',
+    justifyContent: 'space-between',
     flexDirection: 'row',
   },
   categorycard: {
+    borderRightColor: 'white',
+    borderRightWidth: 1,
+    borderBottomColor: 'white',
+    borderBottomWidth: 1,
+
+    width: '100%',
+    height: 30,
     marginVertical: 10,
-    width: 100,
-    borderColor: 'black',
-    borderWidth: 1,
+
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

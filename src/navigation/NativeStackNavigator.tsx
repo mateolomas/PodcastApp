@@ -6,11 +6,14 @@ import {AudioClip} from '../interfaces/IAlbum';
 import AlbumScreen from '../screens/AlbumScreen';
 import {Body} from '../interfaces/IChannel';
 import PlayerScreen from '../screens/PlayerScreen';
+import PopularScreen from '../screens/PopularSreen';
+import {AudioClipPopular} from '../interfaces/IPopular';
 
 export type RootStackParamList = {
   MainScreen: undefined;
   AlbumScreen: Body;
   PlayerScreen: AudioClip;
+  PopularScreen: AudioClipPopular;
 };
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +35,13 @@ const NativeStack = () => {
         }}
         name="PlayerScreen"
         component={PlayerScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="PopularScreen"
+        component={PopularScreen}
       />
     </Stack.Navigator>
   );

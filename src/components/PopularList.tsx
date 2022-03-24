@@ -10,19 +10,19 @@ import {
   View,
 } from 'react-native';
 import {useFetch} from '../hooks/useFetch';
-import {ChannelRecommended, Body} from '../interfaces/IChannel';
-import {useEffect} from 'react';
+
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import AlbumScreen from '../screens/AlbumScreen';
+
+import {Popular, Body, AudioClipPopular} from '../interfaces/IPopular';
 import {AudioClip} from '../interfaces/IAlbum';
 
 export type RootStackParamList = {
-  AlbumScreen: Body;
+  PopularScreen: AudioClipPopular | AudioClip;
 };
 
 const PopularList = () => {
-  const {data, loading, error} = useFetch<ChannelRecommended>(
+  const {data, loading, error} = useFetch<Popular>(
     'https://api.audioboom.com/audio_clips/popular',
   );
 
@@ -44,36 +44,34 @@ const PopularList = () => {
   return (
     <View style={{}}>
       {data &&
-        data.body.map((album: Body) => {
-          if (album.urls.logo_image.original) {
-            return (
-              <>
-                <TouchableOpacity
-                  key={album.id + album.formatted_description}
-                  onPress={() => navigation.navigate('AlbumScreen', album)}
+        data.body.audio_clips.map((popularSong: AudioClipPopular) => {
+          return (
+            <>
+              <TouchableOpacity
+                key={popularSong.id}
+                onPress={() => navigation.navigate('PlayerScreen', popularSong)}
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: 300,
+                  marginVertical: 30,
+                }}>
+                <Image
+                  source={{uri: popularSong.channel.urls.logo_image.original}}
+                  style={{width: '100%', height: '100%'}}
+                  resizeMode="contain"
+                />
+                <Text
                   style={{
-                    width: '100%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: 300,
-                    marginVertical: 30,
+                    fontSize: 20,
+                    textAlign: 'center',
                   }}>
-                  <Image
-                    source={{uri: album.urls.logo_image.original}}
-                    style={{width: '100%', height: '100%'}}
-                    resizeMode="contain"
-                  />
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      textAlign: 'center',
-                    }}>
-                    {album.title}
-                  </Text>
-                </TouchableOpacity>
-              </>
-            );
-          }
+                  {popularSong.title}
+                </Text>
+              </TouchableOpacity>
+            </>
+          );
         })}
     </View>
   );
